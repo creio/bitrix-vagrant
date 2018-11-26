@@ -19,9 +19,14 @@ printf "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
 sudo sed -i 's/\/opt/#\/opt/' /root/menu.sh
 
 # Правки, связанные с вагрантом - настройки httpd
+sudo systemctl enable httpd.service
+
 sudo sed -i 's/User bitrix/User vagrant/' /etc/httpd/conf/httpd.conf
 sudo sed -i 's/Group bitrix/Group vagrant/' /etc/httpd/conf/httpd.conf
-sudo service httpd restart
+
+# sudo service httpd restart
+# sudo systemctl restart httpd.service
+
 # Правки, связанные с вагрантом - сессии
 mkdir /tmp/php_sessions
 mkdir /tmp/php_sessions/www
@@ -29,17 +34,19 @@ chown vagrant:vagrant /tmp/php_sessions -R
 
 # Включаем phar-файлы
 sudo cp /etc/php.d/20-phar.ini.disabled /etc/php.d/20-phar.ini
-sudo service httpd restart
+# sudo service httpd restart
+sudo systemctl restart httpd.service
 
 # Прокидываем ssh-ключи
-if [ ! -f /home/bitrix/.ssh/id_rsa ]
+if [ ! -f /home/bitrix/vagrant_conf/.ssh/id_rsa ]
   then
-    echo "SSH key is missing (.ssh/id_rsa)"
+    echo "SSH key is missing (vagrant_conf/.ssh/id_rsa)"
   else
     echo "Copy SSH key..."
     mkdir /home/vagrant/.ssh/
-    cp -f /home/bitrix/.ssh/id_rsa /home/vagrant/.ssh/id_rsa
-    chmod 0600 /home/vagrant/.ssh/id_rsa
+    chmod 700 /home/vagrant/.ssh
+    cp -f /home/bitrix/vagrant_conf/.ssh/id_rsa /home/vagrant/.ssh/id_rsa
+    chmod 700 /home/vagrant/.ssh/id_rsa
 fi
 
 # Composer

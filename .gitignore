@@ -1,5 +1,4 @@
 vagrant/.vagrant
-.ssh
 
 # This customization
 /vagrant_conf/*

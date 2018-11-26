@@ -8,8 +8,8 @@
 echo "The installation of the Bitrix environment started. This may take some time..."
 
 #### Производим устровку VMBitrix
-# sudo ./bitrix-env.sh -s -p -H bitrix -M 'mysql'
-sudo ./bitrix-env.sh -s -M 'mysql'
+sudo ./bitrix-env.sh -s -p -H centos -M 'mysql'
+# sudo ./bitrix-env.sh -s -M 'mysql'
 
 ## Чиним косяки Bitrix.Env
 # Частый косяк из-за неправильного DNS-сервера в офисе

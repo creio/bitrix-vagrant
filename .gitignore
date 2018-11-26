@@ -1,0 +1,16 @@
+vagrant/.vagrant
+.ssh
+
+# This customization
+/vagrant_conf/*
+!vagrant_conf/README.md
+!vagrant_conf/init.bash
+!vagrant_conf/mysql.sql
+/vagrant_conf/.ssh/*
+
+# Project
+www
+/www/yandex*
+/www/*.html
+/www/bitrix/
+/www/upload/

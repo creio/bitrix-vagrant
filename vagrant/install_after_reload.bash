@@ -21,7 +21,7 @@ sudo sed -i 's/\/opt/#\/opt/' /root/menu.sh
 # Правки, связанные с вагрантом - настройки httpd
 sudo sed -i 's/User bitrix/User vagrant/' /etc/httpd/conf/httpd.conf
 sudo sed -i 's/Group bitrix/Group vagrant/' /etc/httpd/conf/httpd.conf
-# sudo service httpd restart
+sudo service httpd restart
 # Правки, связанные с вагрантом - сессии
 mkdir /tmp/php_sessions
 mkdir /tmp/php_sessions/www

@@ -34,4 +34,6 @@
 
 # Дополнительно
 
+`sudo systemctl restart httpd.service` - Ошибка 502, сделать рестарт httpd.
+
 Более подробную информацию по работе с «1С-Битрикс: Веб-окружение» вы можете найти по ссылке - https://dev.1c-bitrix.ru/learning/course/?COURSE_ID=37&CHAPTER_ID=08809&LESSON_PATH=3908.8809
